@@ -8,19 +8,19 @@ import google from "../assets/google.png";
 import apple from "../assets/apple.png";
 import { RiFacebookLine, RiLinkedinLine } from "react-icons/ri";
 import { CiTwitter } from "react-icons/ci";
-import { FaInstagram, FaRegCopyright } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <Stack direction={"column"} padding={"1rem"} bgcolor={"#000000"}>
       <Stack
         display={"flex"}
-        // alignItems={"center"}
+        flexWrap={"wrap"}
         justifyContent={"center"}
         gap={"2rem"}
         direction={"row"}
         sx={{ pt: "3rem", pb: "4rem" }}
       >
-        <Box>
+        <Box width={"200px"}>
           <Typography
             variant="h4"
             color="#fafafa"
@@ -90,7 +90,7 @@ const Footer = () => {
         </Box>
 
         {footer.map((footers) => (
-          <Box key={footers.id}>
+          <Box key={footers.id} width={"200px"}>
             <Typography
               variant="h4"
               color="#fafafa"

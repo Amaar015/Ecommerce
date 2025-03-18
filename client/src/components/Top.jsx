@@ -6,7 +6,6 @@ const Top = () => {
   return (
     <Stack
       direction={"row"}
-      width={"100vw"}
       padding={"0.3rem 0rem"}
       bgcolor={"#000000"}
       color={"#fff"}
