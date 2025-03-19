@@ -1,5 +1,11 @@
 import appleIcon from "../assets/apple-icon.png";
 import apple from "../assets/hero-slider.png";
+import game from "../assets/game.png";
+import keyboard from "../assets/keyboard.png";
+import cupboard from "../assets/cupboard.png";
+import lcd from "../assets/lcd.png";
+import chair from "../assets/chair.png";
+
 export const footer = [
   {
     id: 1,
@@ -119,5 +125,99 @@ export const heroData = [
     tag: "Enjoy the Offers!",
     icon: appleIcon,
     image: apple,
+  },
+];
+
+export const times = [
+  {
+    title: "Days",
+    time: "03",
+  },
+  {
+    title: "Hours",
+    time: "23",
+  },
+  {
+    title: "Minutes",
+    time: "19",
+  },
+  {
+    title: "Seconds",
+    time: "56",
+  },
+];
+
+export const flashSales = [
+  {
+    id: 1,
+    title: "HAVIT HV-G92 Gamepad",
+    price: "$120",
+    previous: "$160",
+    discount: "-40%",
+    rating: "88",
+    image: game,
+  },
+  {
+    id: 2,
+    title: "AK-900 Wired Keyboard",
+    price: "$960",
+    previous: "$1160",
+    discount: "-35%",
+    rating: "75",
+    image: keyboard,
+  },
+  {
+    id: 3,
+    title: "IPS LCD Gaming Monitor",
+    price: "$370",
+    previous: "$400",
+    discount: "-25%",
+    rating: "99",
+    image: lcd,
+  },
+  {
+    id: 4,
+    title: "S-Series Comfort Chair",
+    price: "$375",
+    previous: "$400",
+    discount: "-25%",
+    rating: "88",
+    image: chair,
+  },
+  {
+    id: 5,
+    title: "Small BookSelf",
+    price: "$360",
+    previous: "$440",
+    discount: "-30%",
+    rating: "65",
+    image: cupboard,
+  },
+  {
+    id: 6,
+    title: "IPS LCD Gaming Monitor",
+    price: "$370",
+    previous: "$400",
+    discount: "-25%",
+    rating: "99",
+    image: lcd,
+  },
+  {
+    id: 7,
+    title: "S-Series Comfort Chair",
+    price: "$375",
+    previous: "$400",
+    discount: "-25%",
+    rating: "88",
+    image: chair,
+  },
+  {
+    id: 8,
+    title: "Small BookSelf",
+    price: "$360",
+    previous: "$440",
+    discount: "-30%",
+    rating: "65",
+    image: cupboard,
   },
 ];

@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "@mui/material";
 
-import { SideBar, Slider } from "../components/Components";
+import { SideBar, Slider} from "../components/Components";
 import FlashSales from "../components/FlashSales";
 
 const Home = () => {

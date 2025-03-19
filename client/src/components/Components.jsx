@@ -1,9 +1,11 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { heroData, sideBar } from "../data/data";
+import { heroData, sideBar, times } from "../data/data";
 import EastIcon from "@mui/icons-material/East";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -49,9 +51,17 @@ export const Slider = () => {
         }}
         modules={[Pagination]}
         className="mySwiper"
+        style={{ width: "100%", height: "100%" }}
       >
         {heroData.map((data) => (
-          <SwiperSlide>
+          <SwiperSlide
+            style={{
+              background: "#000000",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Box
               padding={"0rem 1rem 0rem 3rem"}
               display={"flex"}
@@ -135,7 +145,7 @@ export const Heading = ({ title }) => {
       fontSize={"16px"}
       fontWeight={600}
       color="#DB4444"
-      paddingTop={'0.5rem!important'}
+      paddingTop={"0.5rem!important"}
       marginLeft={"2rem!important"}
       lineHeight={"20px"}
       sx={{
@@ -154,5 +164,72 @@ export const Heading = ({ title }) => {
     >
       {title}
     </Typography>
+  );
+};
+
+export const SubHeading = ({ title, time, action, next, prev }) => {
+  return (
+    <Stack
+      width={"100%"}
+      height={"100%"}
+      display={"flex"}
+      flexDirection={"row"}
+      alignItems={"center"}
+      justifyContent={"space-between"}
+    >
+      <Box display={"flex"} alignItems={"center"} gap={"3.5rem"}>
+        <Typography fontSize={"36px"} fontWeight={600} lineHeight={"48px"}>
+          {title}
+        </Typography>
+        {time && (
+          <Box display={"flex"} alignItems={"center"}>
+            {times.map((time, index) => (
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                key={index}
+                flexDirection={"row"}
+              >
+                <Stack padding={"0rem 1rem"}>
+                  <span style={{ fontSize: "12px" }}>{time.title}</span>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontSize: "36px", fontWeight: "700" }}
+                  >
+                    {time.time}
+                  </Typography>
+                </Stack>
+                {index !== times.length - 1 && (
+                  <Typography fontSize={"2.5rem"} color="#E07575">
+                    :
+                  </Typography>
+                )}
+              </Box>
+            ))}
+          </Box>
+        )}
+      </Box>
+
+      {action ? (
+        <Box>
+          <IconButton onClick={() => prev()}>
+            <ArrowBackIcon sx={{ color: "#000000" }} />
+          </IconButton>
+          <IconButton onClick={() => next()}>
+            <ArrowForwardIcon sx={{ color: "#000000" }} />
+          </IconButton>
+        </Box>
+      ) : (
+        <Box>Button</Box>
+      )}
+    </Stack>
+  );
+};
+
+export const ProductCard = () => {
+  return (
+    <Stack>
+      <div>Card box</div>
+    </Stack>
   );
 };
