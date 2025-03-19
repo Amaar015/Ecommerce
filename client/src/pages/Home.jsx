@@ -1,8 +1,11 @@
 import React from "react";
 import { Stack } from "@mui/material";
 
-import { SideBar, Slider} from "../components/Components";
+import { SideBar, Slider } from "../components/Components";
 import FlashSales from "../components/FlashSales";
+import Categories from "../components/Categories";
+import BestProducts from "../components/BestProducts";
+import Poster from "../components/Poster";
 
 const Home = () => {
   return (
@@ -14,6 +17,9 @@ const Home = () => {
         <Slider />
       </Stack>
       <FlashSales />
+      <Categories />
+      <BestProducts />
+      <Poster />
     </>
   );
 };

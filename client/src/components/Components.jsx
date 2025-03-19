@@ -1,11 +1,14 @@
 import React from "react";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { heroData, sideBar, times } from "../data/data";
 import EastIcon from "@mui/icons-material/East";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { FaRegHeart } from "react-icons/fa6";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -220,16 +223,200 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
           </IconButton>
         </Box>
       ) : (
-        <Box>Button</Box>
+        <Buttons title={"View All"} padding={"0.4rem 2.5rem"} />
       )}
     </Stack>
   );
 };
 
-export const ProductCard = () => {
+export const ProductCard = ({ product }) => {
   return (
-    <Stack>
-      <div>Card box</div>
-    </Stack>
+    <Box
+      width={"100%"}
+      height={"100%"}
+      display={"flex"}
+      flexDirection={"column"}
+      gap={"1rem"}
+    >
+      <Box
+        height={"70%"}
+        width={"100%"}
+        sx={{
+          position: "relative",
+          bgcolor: "#F5F5F5",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+          "&:hover .hover-button": {
+            bottom: 0,
+          },
+        }}
+      >
+        <img
+          src={product?.image}
+          alt=""
+          style={{
+            width: "170px",
+            height: "150px",
+            objectFit: "contain",
+          }}
+        />
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          gap={"10px"}
+          position={"absolute"}
+          top={"5%"}
+          right={"2%"}
+        >
+          <IconButton
+            sx={{
+              width: "34px",
+              height: "34px",
+              backgroundColor: "#fff",
+            }}
+          >
+            <FaRegHeart style={{ fontSize: "16px" }} />
+          </IconButton>
+          <IconButton
+            sx={{
+              width: "34px",
+              height: "34px",
+              backgroundColor: "#fff",
+            }}
+          >
+            <MdOutlineRemoveRedEye style={{ fontSize: "16px" }} />
+          </IconButton>
+        </Box>
+        {product.discount && (
+          <Typography
+            variant="span"
+            padding={"0.2rem 0.4rem"}
+            bgcolor={"#DB4444"}
+            borderRadius={"4px"}
+            position={"absolute"}
+            top={"5%"}
+            left={"4%"}
+            color="#fafafa"
+            fontSize={"12px"}
+          >
+            {product?.discount}
+          </Typography>
+        )}
+
+        <Button
+          className="hover-button"
+          sx={{
+            width: "100%",
+            height: "40px",
+            bgcolor: "#000000",
+            position: "absolute",
+            right: 0,
+            bottom: "-20%",
+            color: "#ffffff",
+            fontSize: "16px",
+            transition: "bottom 0.3s ease-in-out, opacity 0.3s ease-in-out",
+          }}
+        >
+          Add To Cart
+        </Button>
+      </Box>
+      <Box display={"flex"} flexDirection={"column"} gap={"0.5rem"}>
+        <Typography fontSize={"16px"} fontWeight={500}>
+          {product?.title}
+        </Typography>
+        <Box display={"flex"} gap={"0.8rem"} fontSize={"16px"}>
+          <span style={{ color: "#DB4444" }}>{product?.price}</span>
+          {product.previous && (
+            <span style={{ color: "#555", textDecoration: "line-through" }}>
+              {product?.previous}
+            </span>
+          )}
+        </Box>
+        <Star stars={product?.stars} reviews={product?.rating} />
+      </Box>
+    </Box>
+  );
+};
+
+const Star = ({ stars, reviews }) => {
+  const ratingStar = Array.from({ length: 5 }, (elem, index) => {
+    let number = index + 0.5;
+    return (
+      <span key={index}>
+        {stars >= index + 1 ? (
+          <FaStar className="icon" />
+        ) : stars >= number ? (
+          <FaStarHalfAlt className="icon" />
+        ) : (
+          <FaRegStar className="icon" />
+        )}
+      </span>
+    );
+  });
+
+  return (
+    <Box
+      display={"flex"}
+      gap={"0.5rem"}
+      alignItems={"center"}
+      marginTop={"-0.8rem"}
+    >
+      {ratingStar}
+      <p style={{ fontSize: "14px", fontWeight: 600, color: "#555" }}>
+        ({reviews})
+      </p>
+    </Box>
+  );
+};
+
+export const Buttons = ({ title, padding, width }) => {
+  return (
+    <Button
+      sx={{
+        background: "#DB4444",
+        color: "#fafafa",
+        fontSize: "16px",
+        fontFamily: '"Poppins", sans-serif',
+        padding: `${padding}`,
+        border: "none",
+        borderRadius: "4px",
+        transition: "opacity 0.3s ease-in-out",
+        "&:hover": {
+          opacity: 0.7,
+        },
+      }}
+    >
+      {title}
+    </Button>
+  );
+};
+
+export const CategoriesCard = ({ product }) => {
+  return (
+    <Box
+      sx={{
+        width: "170px",
+        height: "140px",
+        border: "1px solid #0000004D",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        transition: "all 0.3s linear",
+        cursor: "pointer",
+        "&:hover": {
+          background: "#DB4444",
+          color: "#fafafa",
+          border: "1px solid transparent",
+        },
+      }}
+    >
+      <product.image style={{ width: "56px", height: "56px" }} />
+      <Typography variant="p" fontSize={"14px"} fontWeight={400}>
+        {product.title}
+      </Typography>
+    </Box>
   );
 };

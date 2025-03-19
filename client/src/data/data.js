@@ -5,6 +5,13 @@ import keyboard from "../assets/keyboard.png";
 import cupboard from "../assets/cupboard.png";
 import lcd from "../assets/lcd.png";
 import chair from "../assets/chair.png";
+import { CiMobile4 } from "react-icons/ci";
+import { HiOutlineDesktopComputer } from "react-icons/hi";
+import { TbDeviceWatchStats } from "react-icons/tb";
+import { CiCamera } from "react-icons/ci";
+import { LuHeadphones, LuGamepad } from "react-icons/lu";
+import { RiShirtLine } from "react-icons/ri";
+import { MdOutlineSportsBaseball } from "react-icons/md";
 
 export const footer = [
   {
@@ -155,6 +162,7 @@ export const flashSales = [
     previous: "$160",
     discount: "-40%",
     rating: "88",
+    stars: 4.4,
     image: game,
   },
   {
@@ -164,6 +172,7 @@ export const flashSales = [
     previous: "$1160",
     discount: "-35%",
     rating: "75",
+    stars: 5,
     image: keyboard,
   },
   {
@@ -173,6 +182,7 @@ export const flashSales = [
     previous: "$400",
     discount: "-25%",
     rating: "99",
+    stars: 4.5,
     image: lcd,
   },
   {
@@ -182,6 +192,7 @@ export const flashSales = [
     previous: "$400",
     discount: "-25%",
     rating: "88",
+    stars: 3.4,
     image: chair,
   },
   {
@@ -191,6 +202,7 @@ export const flashSales = [
     previous: "$440",
     discount: "-30%",
     rating: "65",
+    stars: 5,
     image: cupboard,
   },
   {
@@ -200,6 +212,7 @@ export const flashSales = [
     previous: "$400",
     discount: "-25%",
     rating: "99",
+    stars: 4.8,
     image: lcd,
   },
   {
@@ -209,6 +222,7 @@ export const flashSales = [
     previous: "$400",
     discount: "-25%",
     rating: "88",
+    stars: 4.3,
     image: chair,
   },
   {
@@ -218,6 +232,88 @@ export const flashSales = [
     previous: "$440",
     discount: "-30%",
     rating: "65",
+    stars: 4,
     image: cupboard,
+  },
+];
+
+export const categories = [
+  {
+    id: 1,
+    title: "Phones",
+    image: CiMobile4,
+  },
+  {
+    id: 2,
+    title: "Computers",
+    image: HiOutlineDesktopComputer,
+  },
+  {
+    id: 3,
+    title: "SmartWatch",
+    image: TbDeviceWatchStats,
+  },
+  {
+    id: 4,
+    title: "Camera",
+    image: CiCamera,
+  },
+  {
+    id: 5,
+    title: "HeadPhones",
+    image: LuHeadphones,
+  },
+  {
+    id: 6,
+    title: "Gaming",
+    image: LuGamepad,
+  },
+  {
+    id: 7,
+    title: "Shirt",
+    image: RiShirtLine,
+  },
+  {
+    id: 8,
+    title: "Sport",
+    image: MdOutlineSportsBaseball,
+  },
+];
+
+export const BestProduct = [
+  {
+    id: 1,
+    title: "The north coat",
+    price: "$260",
+    previous: "$360",
+    rating: "88",
+    stars: 4.8,
+    image: game,
+  },
+  {
+    id: 2,
+    title: "Gucci duffle bag",
+    price: "$960",
+    previous: "$1160",
+    rating: "75",
+    stars: 4.4,
+    image: keyboard,
+  },
+  {
+    id: 3,
+    title: "RGB liquid CPU Cooler",
+    price: "$160",
+    previous: "$170",
+    rating: "99",
+    stars: 4.5,
+    image: lcd,
+  },
+  {
+    id: 4,
+    title: "Small BookSelf",
+    price: "$360",
+    rating: "88",
+    stars: 3.4,
+    image: chair,
   },
 ];

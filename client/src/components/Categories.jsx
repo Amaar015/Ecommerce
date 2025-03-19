@@ -1,16 +1,14 @@
 import { Box, Divider, Stack } from "@mui/material";
 import React, { useRef } from "react";
-import { Buttons, Heading, ProductCard, SubHeading } from "./Components";
+import { CategoriesCard, Heading, SubHeading } from "./Components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { categories } from "../data/data";
 
-// import required modules
-import { flashSales } from "../data/data";
-
-const FlashSales = () => {
+const Categories = () => {
   const swiperRef = useRef(null);
   const onFarwardClick = () => {
     swiperRef.current?.slideNext();
@@ -20,36 +18,35 @@ const FlashSales = () => {
   };
   return (
     <>
-      <Stack padding={"5rem 8% 1.5rem 9%"} spacing={"2rem"}>
-        <Heading title={"Today's"} />
+      <Stack padding={"3rem 8% 1.5rem 9%"} spacing={"2rem"}>
+        <Heading title={"Categories"} />
         <SubHeading
-          title={"Flash Sales"}
-          time={true}
+          title={"Browse By Category"}
+          time={false}
           action={true}
           next={onFarwardClick}
           prev={onBackwardClick}
         />
       </Stack>
-
-      {/* SLider  */}
-      <Stack padding={"0rem 0% 2rem 0%"} className="cards">
+      {/* card slider */}
+      <Stack padding={"2rem 9% 2rem 9%"} className="cards">
         <Swiper
-          slidesPerView={"auto"} // Show 4 slides at a time
-          spaceBetween={30} // Space between slides
-          className="mySwiper"
-          slidesOffsetBefore={window.innerWidth * 0.09} // 8% left padding for the first slide
+          slidesPerView={6} // Show 4 slides at a time
+          spaceBetween={10} // Space between slides
+          //   className="mySwiper"
           centerInsufficientSlides={true} // Center slides if fewer than needed
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           style={{ width: "100%", height: "100%" }} // Set Swiper container height
         >
-          {flashSales.map((product) => (
+          {categories.map((category) => (
             <SwiperSlide
+              key={category.id}
               style={{
-                width: "250px",
-                height: "350px",
+                width: "100%",
+                height: "100%",
               }}
             >
-              <ProductCard product={product} />
+              <CategoriesCard product={category} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -59,15 +56,13 @@ const FlashSales = () => {
         alignItems={"center"}
         justifyContent={"center"}
         flexDirection={"column"}
-        gap={"3rem"}
-        marginBottom={"3rem"}
+        
+        margin={"3rem 0rem"}
       >
-        <Buttons title={"View All Products"} padding={"0.8rem 2.5rem"} />
-
         <Divider sx={{ width: "80%", bgcolor: "#000" }} />
       </Box>
     </>
   );
 };
 
-export default FlashSales;
+export default Categories;
