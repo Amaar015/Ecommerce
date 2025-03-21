@@ -4,20 +4,21 @@ import { Buttons } from "../components/Components";
 import google from "../assets/g.png";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({
-    name: "",
     email: "",
     password: "",
   });
 
+  const handleNavigation = () => {
+    navigate("/");
+  };
   // Email validation regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -31,9 +32,6 @@ const Signup = () => {
 
     // Validate input while typing
     let errorMsg = "";
-    if (name === "name") {
-      errorMsg = value.trim() === "" ? "Name is required" : "";
-    }
     if (name === "email") {
       errorMsg = !emailRegex.test(value) ? "Invalid email format" : "";
     }
@@ -53,9 +51,6 @@ const Signup = () => {
     e.preventDefault();
     let validationErrors = {};
 
-    if (!formData.name.trim()) {
-      validationErrors.name = "Name is required";
-    }
     if (!formData.email) {
       validationErrors.email = "Email is required";
     } else if (!emailRegex.test(formData.email)) {
@@ -99,7 +94,7 @@ const Signup = () => {
       >
         <Box display={"flex"} flexDirection={"column"} gap={"14px"}>
           <Typography variant="h4" fontSize={"36px"} fontWeight={500}>
-            Create an account
+            Log in to Exclusive
           </Typography>
           <Typography variant="body1" fontSize={"16px"} fontWeight={400}>
             Enter your details below
@@ -112,15 +107,6 @@ const Signup = () => {
             gap={"20px"}
             width={"350px"}
           >
-            <TextField
-              label="Name"
-              variant="standard"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              error={!!errors.name}
-              helperText={errors.name}
-            />
             <TextField
               label="Email or Phone Number"
               variant="standard"
@@ -140,43 +126,32 @@ const Signup = () => {
               error={!!errors.password}
               helperText={errors.password}
             />
-            <Box display={"flex"} flexDirection={"column"} gap={"16px"}>
-              <Buttons title={"Create Account"} type={"submit"} />
-              <button
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: "40px",
-                  background: "#fff",
-                  border: "1px solid rgba(0, 0, 0, 0.4)",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  src={google}
-                  alt="Google"
-                  style={{ width: "24px", height: "24px" }}
-                />
-                <span style={{ fontSize: "16px", marginLeft: "0.5rem" }}>
-                  Sign up with Google
-                </span>
-              </button>
-            </Box>
-
-            <Typography fontSize={"16px"} fontWeight={400} textAlign={"center"}>
-              Already have an account?{" "}
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              flexDirection={"row"}
+              justifyContent={"space-between"}
+              gap={"16px"}
+              marginTop={"1rem"}
+            >
+              <Buttons
+                title={"Login"}
+                type={"submit"}
+                padding={"0.3rem 1.5rem"}
+                click={handleNavigation}
+              />
               <NavLink
-                to="/login"
+                href=""
                 style={{
                   textDecoration: "none",
-                  color: "rgba(0,0,0,1)",
-                  borderBottom: "1px solid rgba(0,0,0,1)",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  color: "rgba(219, 68, 68, 1)",
                 }}
               >
-                Log in
+                Forget Password?
               </NavLink>
-            </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -184,4 +159,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

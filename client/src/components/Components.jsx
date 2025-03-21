@@ -431,9 +431,11 @@ const Star = ({ stars, reviews }) => {
   );
 };
 
-export const Buttons = ({ title, padding, width }) => {
+export const Buttons = ({ title, padding, width, type, click }) => {
   return (
     <Button
+      type={`${type}`}
+      onClick={click}
       sx={{
         background: "#DB4444",
         color: "#fafafa",
