@@ -19,14 +19,21 @@ import jacket from "../assets/jacket.png";
 import delivery from "../assets/delivery.png";
 import head from "../assets/head.png";
 import tick from "../assets/tick.png";
-import { CiMobile4 } from "react-icons/ci";
+import user from "../assets/user.png";
+import order from "../assets/order.png";
+import cancel from "../assets/cancel.png";
+import star from "../assets/start.png";
+import logout from "../assets/logout.png";
+
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { TbDeviceWatchStats } from "react-icons/tb";
-import { CiCamera } from "react-icons/ci";
+import { CiCamera, CiDollar, CiMobile4 } from "react-icons/ci";
 import { LuHeadphones, LuGamepad } from "react-icons/lu";
 import { RiShirtLine } from "react-icons/ri";
 import { MdOutlineSportsBaseball } from "react-icons/md";
-
+import { AiOutlineShop } from "react-icons/ai";
+import { IoBagHandleOutline } from "react-icons/io5";
+import { TbMoneybag } from "react-icons/tb";
 export const footer = [
   {
     id: 1,
@@ -431,5 +438,130 @@ export const feature = [
     title: "MONEY BACK GUARANTEE",
     description: "We reurn money within 30 days",
     image: tick,
+  },
+];
+
+export const Profile = [
+  {
+    id: 1,
+    title: "Manage My Account",
+    image: user,
+  },
+  {
+    id: 2,
+    title: "My Order",
+    image: order,
+  },
+  {
+    id: 3,
+    title: "My Cancellations",
+    image: cancel,
+  },
+  {
+    id: 4,
+    title: "My Reviews",
+    image: star,
+  },
+  {
+    id: 5,
+    title: "Logout",
+    image: logout,
+  },
+];
+
+export const wishlist = [
+  {
+    id: 1,
+    main: "wishlist",
+    title: "Gucci duffle bag",
+    price: "$960",
+    previous: "$1160",
+    discount: "-35%",
+    image: perse,
+  },
+  {
+    id: 2,
+    main: "wishlist",
+    title: "RGB liquid CPU Cooler",
+    price: "$1960",
+    image: loud,
+  },
+  {
+    id: 3,
+    main: "wishlist",
+    title: "GP11 Shooter USB Gamepad",
+    price: "$550",
+    image: game,
+  },
+  {
+    id: 4,
+    main: "wishlist",
+    title: "Quilted Satin Jacket",
+    price: "$750",
+    image: jacket,
+  },
+];
+
+export const Suggested = [
+  {
+    id: 1,
+    main: "wishlist",
+    title: "ASUS FHD Gaming Laptop",
+    price: "$960",
+    previous: "$1160",
+    discount: "-35%",
+    rating: "88",
+    stars: 4.4,
+    image: laptop,
+  },
+  {
+    id: 2,
+    main: "wishlist",
+    title: "AK-900 Wired Keyboard",
+    price: "$1960",
+    image: keyboard,
+    rating: "65",
+    stars: 3.4,
+  },
+  {
+    id: 3,
+    main: "wishlist",
+    title: "IPS LCD Gaming Monitor",
+    price: "$550",
+    image: lcd,
+    rating: "75",
+    stars: 5,
+  },
+  {
+    id: 4,
+    main: "wishlist",
+    title: "HAVIT HV-G92 Gamepad",
+    price: "$750",
+    image: game1,
+    rating: "75",
+    stars: 5,
+  },
+];
+
+export const abouts = [
+  {
+    id: 1,
+    number: "10.5K",
+    detail: "Sallers active our site",
+  },
+  {
+    id: 2,
+    number: "33K",
+    detail: "Mopnthly Produduct Sale",
+  },
+  {
+    id: 3,
+    number: "45.5K",
+    detail: "Customer active in our site",
+  },
+  {
+    id: 4,
+    number: "25K",
+    detail: "Anual gross sale in our site",
   },
 ];

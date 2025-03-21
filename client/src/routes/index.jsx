@@ -26,6 +26,7 @@ export default function Router() {
         { path: "/contact", element: <Contact /> },
         { path: "/signup", element: <SignUp /> },
         { path: "/login", element: <Login /> },
+        { path: "/wishlist", element: <Wishlist /> },
       ],
     },
     // {
@@ -47,3 +48,4 @@ const Contact = Loadable(lazy(() => import("../pages/Contact")));
 const SignUp = Loadable(lazy(() => import("../pages/Signup")));
 const Page404 = Loadable(lazy(() => import("../pages/Error")));
 const Login = Loadable(lazy(() => import("../pages/Login")));
+const Wishlist = Loadable(lazy(() => import("../pages/Wishlist")));

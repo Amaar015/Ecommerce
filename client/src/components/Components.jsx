@@ -17,7 +17,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
-
+import { IoTrashOutline } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -199,13 +199,13 @@ export const Slider = () => {
   );
 };
 
-export const Heading = ({ title }) => {
+export const Heading = ({ title, fonts, fontw, color }) => {
   return (
     <Typography
       variant="h3"
-      fontSize={"16px"}
-      fontWeight={600}
-      color="#DB4444"
+      fontSize={fonts ? "20px" : "16px"}
+      fontWeight={fontw ? 400 : 600}
+      color={color ? "#000000" : "#DB4444"}
       paddingTop={"0.5rem!important"}
       marginLeft={"2rem!important"}
       lineHeight={"20px"}
@@ -330,24 +330,38 @@ export const ProductCard = ({ product }) => {
           top={"5%"}
           right={"2%"}
         >
-          <IconButton
-            sx={{
-              width: "34px",
-              height: "34px",
-              backgroundColor: "#fff",
-            }}
-          >
-            <FaRegHeart style={{ fontSize: "16px" }} />
-          </IconButton>
-          <IconButton
-            sx={{
-              width: "34px",
-              height: "34px",
-              backgroundColor: "#fff",
-            }}
-          >
-            <MdOutlineRemoveRedEye style={{ fontSize: "16px" }} />
-          </IconButton>
+          {product.main === "wishlist" ? (
+            <IconButton
+              sx={{
+                width: "34px",
+                height: "34px",
+                backgroundColor: "#fff",
+              }}
+            >
+              <IoTrashOutline style={{ fontSize: "16px" }} />
+            </IconButton>
+          ) : (
+            <>
+              <IconButton
+                sx={{
+                  width: "34px",
+                  height: "34px",
+                  backgroundColor: "#fff",
+                }}
+              >
+                <FaRegHeart style={{ fontSize: "16px" }} />
+              </IconButton>
+              <IconButton
+                sx={{
+                  width: "34px",
+                  height: "34px",
+                  backgroundColor: "#fff",
+                }}
+              >
+                <MdOutlineRemoveRedEye style={{ fontSize: "16px" }} />
+              </IconButton>
+            </>
+          )}
         </Box>
         {product.discount && (
           <Typography
@@ -362,6 +376,21 @@ export const ProductCard = ({ product }) => {
             fontSize={"12px"}
           >
             {product?.discount}
+          </Typography>
+        )}
+        {product.new && (
+          <Typography
+            variant="span"
+            padding={"0.2rem 0.4rem"}
+            bgcolor={"#00FF66"}
+            borderRadius={"4px"}
+            position={"absolute"}
+            top={"5%"}
+            left={"4%"}
+            color="#fafafa"
+            fontSize={"12px"}
+          >
+            {product?.new}
           </Typography>
         )}
 
@@ -394,7 +423,9 @@ export const ProductCard = ({ product }) => {
             </span>
           )}
         </Box>
-        <Star stars={product?.stars} reviews={product?.rating} />
+        {product.stars && (
+          <Star stars={product?.stars} reviews={product?.rating} />
+        )}
       </Box>
     </Box>
   );
@@ -586,6 +617,33 @@ export const ProductsCard = ({ product }) => {
           <Star stars={product?.stars} reviews={product?.rating} />
         </Box>
       </Box>
+    </Box>
+  );
+};
+
+export const BeforeHeading = ({ title, path, left }) => {
+  return (
+    <Box
+      display={"flex"}
+      alignItems={"center"}
+      justifyContent={"space-between"}
+    >
+      <Box
+        display={"flex"}
+        alignItems={"center"}
+        gap={"10px"}
+        fontSize={"14px"}
+        fontWeight={400}
+        color={"#777"}
+      >
+        <Typography>{path}</Typography>
+        <Typography color="#000000">{title}</Typography>
+      </Box>
+      {left && (
+        <Typography fontSize={"14px"} color="#000000" fontWeight={400}>
+          Welcome! <span style={{ color: "#DB4444" }}>{left}</span>
+        </Typography>
+      )}
     </Box>
   );
 };
