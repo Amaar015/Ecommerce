@@ -20,7 +20,7 @@ const FlashSales = () => {
   };
   return (
     <>
-      <Stack padding={"5rem 8% 1.5rem 9%"} spacing={"2rem"}>
+      <Stack padding={"5rem 8% 1.5rem 8%"} spacing={"2rem"}>
         <Heading title={"Today's"} />
         <SubHeading
           title={"Flash Sales"}

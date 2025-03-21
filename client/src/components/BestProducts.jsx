@@ -6,7 +6,7 @@ import { BestProduct } from "../data/data";
 const BestProducts = () => {
   return (
     <>
-      <Stack padding={"3rem 8% 1.5rem 9%"} spacing={"2rem"}>
+      <Stack padding={"3rem 8% 1.5rem 8%"} spacing={"2rem"}>
         <Heading title={"This Month"} />
         <SubHeading
           title={"Best Selling Products"}

@@ -1,5 +1,13 @@
-import React from "react";
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import React, { useRef, useState } from "react";
+import {
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { heroData, sideBar, times } from "../data/data";
@@ -15,8 +23,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 export const SideBar = () => {
+  const [activeMenu, setActiveMenu] = useState(null);
+  const anchorRefs = useRef({}); // Store references for each menu
+
+  const handleClick = (event, id) => {
+    setActiveMenu(activeMenu === id ? null : id);
+  };
+
+  const handleClose = () => {
+    setActiveMenu(null);
+  };
+
   return (
     <Stack borderRight={"1px solid #333"} width={"20%"}>
       <Box
@@ -26,17 +45,56 @@ export const SideBar = () => {
         padding={"2rem 2rem 0rem 0rem"}
       >
         {sideBar.map((links) => (
-          <NavLink
-            key={links.id}
-            href={links.path}
-            className="navlinks"
-            style={{
-              color: "#000000",
-            }}
-          >
-            {links.name}
-            {links.category && <KeyboardArrowRightIcon />}
-          </NavLink>
+          <div key={links.id} ref={(el) => (anchorRefs.current[links.id] = el)}>
+            <NavLink
+              href={links.path}
+              className="navlinks"
+              style={{ color: "#000000" }}
+              {...(links.category && {
+                "aria-controls":
+                  activeMenu === links.id ? "basic-menu" : undefined,
+                "aria-haspopup": "true",
+                "aria-expanded": activeMenu === links.id ? "true" : undefined,
+                onClick: (event) => handleClick(event, links.id),
+              })}
+            >
+              {links.name}
+              {links.category && activeMenu === links.id ? (
+                <KeyboardArrowDownIcon />
+              ) : (
+                <KeyboardArrowRightIcon />
+              )}
+            </NavLink>
+
+            {links.category && (
+              <Menu
+                id="basic-menu"
+                anchorEl={
+                  activeMenu === links.id ? anchorRefs.current[links.id] : null
+                }
+                disableScrollLock
+                open={activeMenu === links.id}
+                onClose={handleClose}
+                sx={{ minWidth: 300 }}
+              >
+                {links.category.map((data, index) => (
+                  <MenuItem key={index} onClick={handleClose}>
+                    <NavLink
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "16px",
+                        fontWeight: "400",
+                        color: "#000000",
+                      }}
+                      to={data.path}
+                    >
+                      {data.title}
+                    </NavLink>
+                  </MenuItem>
+                ))}
+              </Menu>
+            )}
+          </div>
         ))}
       </Box>
     </Stack>
@@ -213,7 +271,7 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
         )}
       </Box>
 
-      {action ? (
+      {action === true ? (
         <Box>
           <IconButton onClick={() => prev()}>
             <ArrowBackIcon sx={{ color: "#000000" }} />
@@ -222,8 +280,10 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
             <ArrowForwardIcon sx={{ color: "#000000" }} />
           </IconButton>
         </Box>
-      ) : (
+      ) : action === false ? (
         <Buttons title={"View All"} padding={"0.4rem 2.5rem"} />
+      ) : (
+        ""
       )}
     </Stack>
   );
@@ -417,6 +477,113 @@ export const CategoriesCard = ({ product }) => {
       <Typography variant="p" fontSize={"14px"} fontWeight={400}>
         {product.title}
       </Typography>
+    </Box>
+  );
+};
+
+// card design ii
+export const ProductsCard = ({ product }) => {
+  return (
+    <Box
+      width={"100%"}
+      height={"100%"}
+      display={"flex"}
+      flexDirection={"column"}
+      gap={"1rem"}
+    >
+      <Box
+        height={"70%"}
+        width={"100%"}
+        sx={{
+          position: "relative",
+          bgcolor: "#F5F5F5",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+          "&:hover .hover-button": {
+            bottom: 0,
+          },
+        }}
+      >
+        <img
+          src={product?.image}
+          alt=""
+          style={{
+            width: "170px",
+            height: "150px",
+            objectFit: "contain",
+          }}
+        />
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          gap={"10px"}
+          position={"absolute"}
+          top={"5%"}
+          right={"2%"}
+        >
+          <IconButton
+            sx={{
+              width: "34px",
+              height: "34px",
+              backgroundColor: "#fff",
+            }}
+          >
+            <FaRegHeart style={{ fontSize: "16px" }} />
+          </IconButton>
+          <IconButton
+            sx={{
+              width: "34px",
+              height: "34px",
+              backgroundColor: "#fff",
+            }}
+          >
+            <MdOutlineRemoveRedEye style={{ fontSize: "16px" }} />
+          </IconButton>
+        </Box>
+        {product.new && (
+          <Typography
+            variant="span"
+            padding={"0.2rem 0.4rem"}
+            bgcolor={"#00FF66"}
+            borderRadius={"4px"}
+            position={"absolute"}
+            top={"5%"}
+            left={"4%"}
+            color="#fafafa"
+            fontSize={"12px"}
+          >
+            {product?.new}
+          </Typography>
+        )}
+
+        <Button
+          className="hover-button"
+          sx={{
+            width: "100%",
+            height: "40px",
+            bgcolor: "#000000",
+            position: "absolute",
+            right: 0,
+            bottom: "-20%",
+            color: "#ffffff",
+            fontSize: "16px",
+            transition: "bottom 0.3s ease-in-out, opacity 0.3s ease-in-out",
+          }}
+        >
+          Add To Cart
+        </Button>
+      </Box>
+      <Box display={"flex"} flexDirection={"column"} gap={"0.5rem"}>
+        <Typography fontSize={"16px"} fontWeight={500}>
+          {product?.title}
+        </Typography>
+        <Box display={"flex"} gap={"0.3rem"} fontSize={"16px"}>
+          <span style={{ color: "#DB4444" }}>{product?.price}</span>
+          <Star stars={product?.stars} reviews={product?.rating} />
+        </Box>
+      </Box>
     </Box>
   );
 };

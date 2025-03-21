@@ -5,6 +5,20 @@ import keyboard from "../assets/keyboard.png";
 import cupboard from "../assets/cupboard.png";
 import lcd from "../assets/lcd.png";
 import chair from "../assets/chair.png";
+import shirt from "../assets/shirt.png";
+import perse from "../assets/perse.png";
+import loud from "../assets/loud.png";
+import cesar from "../assets/cesar.png";
+import camera from "../assets/camera.png";
+import laptop from "../assets/laptop.png";
+import curology from "../assets/curology.png";
+import car from "../assets/car.png";
+import shoes from "../assets/shoes.png";
+import game1 from "../assets/game-1.png";
+import jacket from "../assets/jacket.png";
+import delivery from "../assets/delivery.png";
+import head from "../assets/head.png";
+import tick from "../assets/tick.png";
 import { CiMobile4 } from "react-icons/ci";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { TbDeviceWatchStats } from "react-icons/tb";
@@ -37,7 +51,7 @@ export const footer = [
 
 export const sideBar = [
   {
-    id: 1,
+    id: 1.1,
     name: "Woman's Fashion",
     path: "/",
     category: [
@@ -56,7 +70,7 @@ export const sideBar = [
     ],
   },
   {
-    id: 2,
+    id: 2.1,
     name: "Men's Fashion",
     path: "/mens",
     category: [
@@ -72,40 +86,52 @@ export const sideBar = [
         title: "Athleisure",
         path: "/category",
       },
+      {
+        title: "Business Casual",
+        path: "/category",
+      },
+      {
+        title: "Shirt",
+        path: "/category",
+      },
+      {
+        title: "Athleisure",
+        path: "/category",
+      },
     ],
   },
   {
-    id: 3,
+    id: 3.1,
     name: "Electronics",
     path: "/",
   },
   {
-    id: 4,
+    id: 4.1,
     name: "Home & Lifestyle",
     path: "/",
   },
   {
-    id: 5,
+    id: 5.1,
     name: "Medicine",
     path: "/",
   },
   {
-    id: 6,
+    id: 6.1,
     name: "Sports & Outdoor",
     path: "/",
   },
   {
-    id: 7,
+    id: 7.1,
     name: "Baby’s & Toys",
     path: "/",
   },
   {
-    id: 8,
+    id: 8.1,
     name: "Groceries & Pets",
     path: "/",
   },
   {
-    id: 9,
+    id: 9.1,
     name: "Health & Beauty",
     path: "/",
   },
@@ -288,7 +314,7 @@ export const BestProduct = [
     previous: "$360",
     rating: "88",
     stars: 4.8,
-    image: game,
+    image: shirt,
   },
   {
     id: 2,
@@ -297,7 +323,7 @@ export const BestProduct = [
     previous: "$1160",
     rating: "75",
     stars: 4.4,
-    image: keyboard,
+    image: perse,
   },
   {
     id: 3,
@@ -306,7 +332,7 @@ export const BestProduct = [
     previous: "$170",
     rating: "99",
     stars: 4.5,
-    image: lcd,
+    image: loud,
   },
   {
     id: 4,
@@ -314,6 +340,96 @@ export const BestProduct = [
     price: "$360",
     rating: "88",
     stars: 3.4,
-    image: chair,
+    image: cupboard,
+  },
+];
+
+export const newProduct = [
+  {
+    id: 1,
+    title: "Breed Dry Dog Food",
+    price: "$100",
+    rating: "35",
+    stars: 3,
+    image: cesar,
+  },
+  {
+    id: 2,
+    title: "CANON EOS DSLR Camera",
+    price: "$360",
+    rating: "95",
+    stars: 4,
+    image: camera,
+  },
+  {
+    id: 3,
+    title: "ASUS FHD Gaming Laptop",
+    price: "$700",
+    rating: "375",
+    stars: 4.5,
+    image: laptop,
+  },
+  {
+    id: 4,
+    title: "Curology Product Set",
+    price: "$300",
+    rating: "145",
+    stars: 4,
+    image: curology,
+  },
+  {
+    id: 5,
+    title: "Breed Dry Dog Food",
+    price: "$100",
+    rating: "35",
+    stars: 3,
+    image: car,
+    new: "new",
+  },
+  {
+    id: 6,
+    title: "CANON EOS DSLR Camera",
+    price: "$360",
+    rating: "95",
+    stars: 4,
+    image: shoes,
+  },
+  {
+    id: 7,
+    title: "ASUS FHD Gaming Laptop",
+    price: "$700",
+    rating: "375",
+    stars: 4.5,
+    image: game1,
+    new: "new",
+  },
+  {
+    id: 8,
+    title: "Curology Product Set",
+    price: "$300",
+    rating: "145",
+    stars: 4,
+    image: jacket,
+  },
+];
+
+export const feature = [
+  {
+    id: 1,
+    title: "FREE AND FAST DELIVERY",
+    description: "Free delivery for all orders over $140",
+    image: delivery,
+  },
+  {
+    id: 2,
+    title: "24/7 CUSTOMER SERVICE",
+    description: "Friendly 24/7 customer support",
+    image: head,
+  },
+  {
+    id: 3,
+    title: "MONEY BACK GUARANTEE",
+    description: "We reurn money within 30 days",
+    image: tick,
   },
 ];

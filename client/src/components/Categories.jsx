@@ -18,7 +18,7 @@ const Categories = () => {
   };
   return (
     <>
-      <Stack padding={"3rem 8% 1.5rem 9%"} spacing={"2rem"}>
+      <Stack padding={"3rem 8% 1.5rem 8%"} spacing={"2rem"}>
         <Heading title={"Categories"} />
         <SubHeading
           title={"Browse By Category"}

@@ -6,6 +6,9 @@ import FlashSales from "../components/FlashSales";
 import Categories from "../components/Categories";
 import BestProducts from "../components/BestProducts";
 import Poster from "../components/Poster";
+import Products from "../components/Products";
+import NewArrival from "../components/newArrival";
+import Features from "../components/Features";
 
 const Home = () => {
   return (
@@ -20,6 +23,9 @@ const Home = () => {
       <Categories />
       <BestProducts />
       <Poster />
+      <Products />
+      <NewArrival />
+      <Features />
     </>
   );
 };
