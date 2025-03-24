@@ -27,6 +27,8 @@ export default function Router() {
         { path: "/signup", element: <SignUp /> },
         { path: "/login", element: <Login /> },
         { path: "/wishlist", element: <Wishlist /> },
+        { path: "/cart", element: <Cart /> },
+        { path: "/checkout", element: <Checkout /> },
       ],
     },
     // {
@@ -49,3 +51,5 @@ const SignUp = Loadable(lazy(() => import("../pages/Signup")));
 const Page404 = Loadable(lazy(() => import("../pages/Error")));
 const Login = Loadable(lazy(() => import("../pages/Login")));
 const Wishlist = Loadable(lazy(() => import("../pages/Wishlist")));
+const Cart = Loadable(lazy(() => import("../pages/Cart")));
+const Checkout = Loadable(lazy(() => import("../pages/Checkout")));

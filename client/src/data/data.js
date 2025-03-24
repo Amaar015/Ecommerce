@@ -24,6 +24,9 @@ import order from "../assets/order.png";
 import cancel from "../assets/cancel.png";
 import star from "../assets/start.png";
 import logout from "../assets/logout.png";
+import team_1 from "../assets/team-1.png";
+import team_2 from "../assets/team-2.png";
+import team_3 from "../assets/team-3.png";
 
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { TbDeviceWatchStats } from "react-icons/tb";
@@ -548,20 +551,143 @@ export const abouts = [
     id: 1,
     number: "10.5K",
     detail: "Sallers active our site",
+    icons: AiOutlineShop,
   },
   {
     id: 2,
     number: "33K",
     detail: "Mopnthly Produduct Sale",
+    icons: CiDollar,
   },
   {
     id: 3,
     number: "45.5K",
     detail: "Customer active in our site",
+    icons: IoBagHandleOutline,
   },
   {
     id: 4,
     number: "25K",
     detail: "Anual gross sale in our site",
+    icons: TbMoneybag,
+  },
+];
+
+export const team = [
+  {
+    id: 1,
+    name: "Tom Cruise",
+    profession: "Founder & Chairman",
+    twitter: "www.tiwtter.com",
+    linkedIn: "www.linkedin.com",
+    instagram: "www.instagram.com",
+    image: team_1,
+  },
+  {
+    id: 2,
+    name: "Emma Watson",
+    profession: "Managing Director",
+    twitter: "www.tiwtter.com",
+    linkedIn: "www.linkedin.com",
+    instagram: "www.instagram.com",
+    image: team_2,
+  },
+  {
+    id: 3,
+    name: "Will Smith",
+    profession: "Product Designer",
+    twitter: "www.tiwtter.com",
+    linkedIn: "www.linkedin.com",
+    instagram: "www.instagram.com",
+    image: team_3,
+  },
+  {
+    id: 4,
+    name: "Travis Head",
+    profession: "Graphic Designer",
+    twitter: "www.tiwtter.com",
+    linkedIn: "www.linkedin.com",
+    instagram: "www.instagram.com",
+    image: team_1,
+  },
+  {
+    id: 5,
+    name: "Kawiya",
+    profession: "Ui/Ux Designer",
+    twitter: "www.tiwtter.com",
+    linkedIn: "www.linkedin.com",
+    instagram: "www.instagram.com",
+    image: team_2,
+  },
+  {
+    id: 6,
+    name: "Steve Smith",
+    profession: "Sales Manager",
+    twitter: "www.tiwtter.com",
+    linkedIn: "www.linkedin.com",
+    instagram: "www.instagram.com",
+    image: team_3,
+  },
+];
+
+export const projects = [
+  {
+    id: 1,
+    name: "LCD Monitor",
+    price: "650",
+    quantity: "1",
+    subtotal: "650",
+    image: laptop,
+  },
+  {
+    id: 2,
+    name: "H1 Gamepad",
+    price: "1150",
+    quantity: "2",
+    subtotal: "22100",
+    image: jacket,
+  },
+
+  {
+    id: 3,
+    name: "H1 Gamepad",
+    price: "1150",
+    quantity: "2",
+    subtotal: "22100",
+    image: game,
+  },
+  {
+    id: 4,
+    name: "H1 Gamepad",
+    price: "1150",
+    quantity: "2",
+    subtotal: "22100",
+    image: camera,
+  },
+
+  {
+    id: 5,
+    name: "H1 Gamepad",
+    price: "1150",
+    quantity: "2",
+    subtotal: "22100",
+    image: car,
+  },
+  {
+    id: 6,
+    name: "H1 Gamepad",
+    price: "1150",
+    quantity: "2",
+    subtotal: "22100",
+    image: shirt,
+  },
+
+  {
+    id: 7,
+    name: "H1 Gamepad",
+    price: "1150",
+    quantity: "2",
+    subtotal: "22100",
+    image: cupboard,
   },
 ];

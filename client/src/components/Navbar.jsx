@@ -109,7 +109,11 @@ const Navbar = () => {
           >
             <IoMdHeartEmpty color="#000" />
           </IconButton>
-          <IconButton>
+          <IconButton
+            onClick={() => {
+              navigate("/cart"); // Use the navigate function
+            }}
+          >
             <RiShoppingCart2Line color="#000" />
           </IconButton>
           {true && (
