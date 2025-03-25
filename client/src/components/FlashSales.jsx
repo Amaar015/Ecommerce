@@ -1,5 +1,5 @@
 import { Box, Divider, Stack } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Buttons, Heading, ProductCard, SubHeading } from "./Components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,14 +9,19 @@ import "swiper/css/pagination";
 
 // import required modules
 import { flashSales } from "../data/data";
+import { useNavigate } from "react-router-dom";
 
 const FlashSales = () => {
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
   const onFarwardClick = () => {
     swiperRef.current?.slideNext();
   };
   const onBackwardClick = () => {
     swiperRef.current?.slidePrev();
+  };
+  const handleOnClick = () => {
+    navigate("/product-detail");
   };
   return (
     <>
@@ -49,7 +54,10 @@ const FlashSales = () => {
                 height: "350px",
               }}
             >
-              <ProductCard product={product} />
+              <ProductCard
+                product={product}
+                click={() => navigate("/product-detail")}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

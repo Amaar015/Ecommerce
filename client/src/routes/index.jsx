@@ -29,6 +29,7 @@ export default function Router() {
         { path: "/wishlist", element: <Wishlist /> },
         { path: "/cart", element: <Cart /> },
         { path: "/checkout", element: <Checkout /> },
+        { path: "/product-detail", element: <ProductDetail /> },
       ],
     },
     // {
@@ -53,3 +54,4 @@ const Login = Loadable(lazy(() => import("../pages/Login")));
 const Wishlist = Loadable(lazy(() => import("../pages/Wishlist")));
 const Cart = Loadable(lazy(() => import("../pages/Cart")));
 const Checkout = Loadable(lazy(() => import("../pages/Checkout")));
+const ProductDetail = Loadable(lazy(() => import("../pages/ProductDetail")));

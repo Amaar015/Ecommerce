@@ -1,15 +1,23 @@
 import {
   Box,
   Checkbox,
+  FormControl,
   FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
   Stack,
   styled,
   TextField,
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { BeforeHeading } from "../components/Components";
+import { BeforeHeading, Buttons } from "../components/Components";
 import { projects } from "../data/data";
+import payment1 from "../assets/payment-1.png";
+import payment2 from "../assets/payment-2.png";
+import payment3 from "../assets/payment-3.png";
+import payment4 from "../assets/payment-4.png";
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
   backgroundColor: theme.palette.action.disabledBackground, // Similar to disabled input background
@@ -237,6 +245,91 @@ const Checkout = () => {
               </Typography>
             </Box>
           </Stack>
+
+          <Box
+            width={"75%"}
+            display={"flex"}
+            // alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <FormControl>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="Bank"
+                  control={
+                    <Radio
+                      sx={{
+                        color: "#000000",
+                        "&.Mui-checked": { color: "#000000" },
+                      }}
+                    />
+                  }
+                  label="Bank"
+                />
+                <FormControlLabel
+                  value="Cash on Delivery"
+                  control={
+                    <Radio
+                      sx={{
+                        color: "#000000",
+                        "&.Mui-checked": { color: "#000000" },
+                      }}
+                    />
+                  }
+                  label="Cash on Delivery"
+                />
+              </RadioGroup>
+            </FormControl>
+            <Box display={"flex"} gap={"1rem"} alignItems={"start"}>
+              <img
+                src={payment1}
+                alt=""
+                style={{ width: "40px", height: "40px", objectFit: "contain" }}
+              />
+              <img
+                src={payment2}
+                alt=""
+                style={{ width: "40px", height: "40px", objectFit: "contain" }}
+              />
+              <img
+                src={payment3}
+                alt=""
+                style={{ width: "40px", height: "40px", objectFit: "contain" }}
+              />
+              <img
+                src={payment4}
+                alt=""
+                style={{ width: "40px", height: "40px", objectFit: "contain" }}
+              />
+            </Box>
+          </Box>
+          <Box
+            width={"75%"}
+            display={"flex"}
+            flexDirection={"row"}
+            gap={"1rem"}
+          >
+            <TextField
+              sx={{ width: "60%" }}
+              id="outlined-basic"
+              label="Coupon Code"
+              variant="outlined"
+              size="small"
+            />
+            <Buttons title={"Apply Coupon"} padding={"0rem 1rem"} />
+          </Box>
+          <Box
+            display={"flex"}
+            justifyContent={"start"}
+            alignItems={"start"}
+            width={"75%"}
+          >
+            <Buttons title={"Place Order"} padding={"0.5rem 1.5rem"} />
+          </Box>
         </Box>
       </Box>
     </Stack>

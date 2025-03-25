@@ -289,7 +289,7 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
   );
 };
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, click }) => {
   return (
     <Box
       width={"100%"}
@@ -412,7 +412,12 @@ export const ProductCard = ({ product }) => {
         </Button>
       </Box>
       <Box display={"flex"} flexDirection={"column"} gap={"0.5rem"}>
-        <Typography fontSize={"16px"} fontWeight={500}>
+        <Typography
+          fontSize={"16px"}
+          fontWeight={500}
+          sx={{ cursor: "pointer" }}
+          onClick={click}
+        >
           {product?.title}
         </Typography>
         <Box display={"flex"} gap={"0.8rem"} fontSize={"16px"}>
@@ -431,7 +436,7 @@ export const ProductCard = ({ product }) => {
   );
 };
 
-const Star = ({ stars, reviews }) => {
+export const Star = ({ stars, reviews }) => {
   const ratingStar = Array.from({ length: 5 }, (elem, index) => {
     let number = index + 0.5;
     return (
@@ -455,7 +460,7 @@ const Star = ({ stars, reviews }) => {
       marginTop={"-0.8rem"}
     >
       {ratingStar}
-      <p style={{ fontSize: "14px", fontWeight: 600, color: "#555" }}>
+      <p style={{ fontSize: "14px", fontWeight: 400, color: "#555" }}>
         ({reviews})
       </p>
     </Box>
@@ -468,14 +473,14 @@ export const Buttons = ({ title, padding, width, type, click }) => {
       type={`${type}`}
       onClick={click}
       sx={{
-        fontWeight:"400",
+        fontWeight: "400",
         background: "#DB4444",
         color: "#fafafa",
         fontSize: "16px",
         fontFamily: '"Poppins", sans-serif',
         padding: `${padding}`,
         border: "none",
-        textTransform:"none",
+        textTransform: "none",
         borderRadius: "4px",
         transition: "opacity 0.3s ease-in-out",
         "&:hover": {
