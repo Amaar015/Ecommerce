@@ -468,12 +468,14 @@ export const Buttons = ({ title, padding, width, type, click }) => {
       type={`${type}`}
       onClick={click}
       sx={{
+        fontWeight:"400",
         background: "#DB4444",
         color: "#fafafa",
         fontSize: "16px",
         fontFamily: '"Poppins", sans-serif',
         padding: `${padding}`,
         border: "none",
+        textTransform:"none",
         borderRadius: "4px",
         transition: "opacity 0.3s ease-in-out",
         "&:hover": {

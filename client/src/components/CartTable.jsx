@@ -1,6 +1,5 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import * as React from "react";
-import game from "../assets/game.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { projects } from "../data/data";
@@ -35,28 +34,25 @@ export default function CartTable() {
       display="flex"
       flexDirection="column"
       width="100%"
-      maxHeight="400px" // Total height including header
-      bgcolor="green"
-      padding="1rem 2%"
+      padding="1rem 2% "
+      gap={"2rem"}
+      height={"300px"}
+      overflow={"auto"}
     >
       {/* Fixed Table Header */}
       <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        width="100%"
+        width="95%"
         height="72px"
-        padding="0rem 1%"
+        padding="1rem 2%"
         boxShadow="rgba(0, 0, 0, 0.05) 0px 8px 24px"
-        bgcolor="white"
-        position="sticky"
-        top={0}
-        zIndex={2} // Ensure it stays on top of scrollable content
       >
-        <Typography fontSize="16px" fontWeight={400}>
+        <Typography fontSize="16px" fontWeight={400} marginLeft={"1rem"}>
           Product
         </Typography>
-        <Typography fontSize="16px" fontWeight={400}>
+        <Typography fontSize="16px" fontWeight={400} marginLeft={"4rem"}>
           Price
         </Typography>
         <Typography fontSize="16px" fontWeight={400}>
@@ -68,30 +64,16 @@ export default function CartTable() {
       </Box>
 
       {/* Scrollable Content */}
-      <Box
-        display="flex"
-        flexDirection="column"
-        gap="10px"
-        overflowY="auto"
-        height="calc(400px - 72px)" // Allow scrolling within remaining space
-        sx={{
-          "&::-webkit-scrollbar": { width: "8px" },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#888",
-            borderRadius: "4px",
-          },
-          "&::-webkit-scrollbar-thumb:hover": { backgroundColor: "#555" },
-        }}
-      >
+      <Box display="flex" flexDirection="column" gap="10px">
         {projects.map((project) => (
           <Box
             key={project.id}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            width="100%"
+            width="95%"
             height="100px"
-            padding="0rem 1%"
+            padding="0rem 2%"
             boxShadow="rgba(0, 0, 0, 0.05) 0px 8px 24px"
             bgcolor="white"
           >
