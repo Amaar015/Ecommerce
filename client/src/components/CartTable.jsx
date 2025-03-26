@@ -68,7 +68,7 @@ export default function CartTable() {
 
       {/* Scrollable Content */}
       <Box display="flex" flexDirection="column" gap="10px">
-        {Product.filter((product) => product.isCart === ture).map((product) => (
+        {Product.filter((product) => product.isCart === true).map((product) => (
           <Box
             key={product.id}
             display="flex"
@@ -137,7 +137,10 @@ export default function CartTable() {
 
             {/* Subtotal Calculation */}
             <Typography fontSize="16px" fontWeight={400}>
-              ${(product.price * quantities[product.id]).toFixed(2)}
+              $
+              {(
+                (Number(product.price) ) * (quantities[product.id] || 1)
+              ).toFixed(2)}
             </Typography>
           </Box>
         ))}

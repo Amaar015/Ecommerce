@@ -196,8 +196,8 @@ export const Product = [
   {
     id: 1,
     title: "HAVIT HV-G92 Gamepad",
-    price: "$120",
-    previous: "$160",
+    price: "120",
+    previous: "160",
     discount: "-40%",
     rating: "88",
     stars: 4.4,
@@ -242,8 +242,8 @@ export const Product = [
   {
     id: 2,
     title: "AK-900 Wired Keyboard",
-    price: "$960",
-    previous: "$1160",
+    price: "960",
+    previous: "1160",
     discount: "-35%",
     rating: "75",
     stars: 5,
@@ -288,8 +288,8 @@ export const Product = [
   {
     id: 3,
     title: "IPS LCD Gaming Monitor",
-    price: "$370",
-    previous: "$400",
+    price: "370",
+    previous: "400",
     discount: "-25%",
     rating: "99",
     stars: 4.5,
@@ -334,8 +334,8 @@ export const Product = [
   {
     id: 4,
     title: "S-Series Comfort Chair",
-    price: "$375",
-    previous: "$400",
+    price: "375",
+    previous: "400",
     discount: "-25%",
     rating: "88",
     stars: 3.4,
@@ -380,8 +380,8 @@ export const Product = [
   {
     id: 5,
     title: "Small BookSelf",
-    price: "$360",
-    previous: "$440",
+    price: "360",
+    previous: "440",
     discount: "-30%",
     rating: "65",
     stars: 5,
@@ -426,8 +426,8 @@ export const Product = [
   {
     id: 6,
     title: "IPS LCD Gaming Monitor",
-    price: "$370",
-    previous: "$400",
+    price: "370",
+    previous: "400",
     discount: "-25%",
     rating: "99",
     stars: 4.8,
@@ -473,8 +473,8 @@ export const Product = [
   {
     id: 7,
     title: "S-Series Comfort Chair",
-    price: "$375",
-    previous: "$400",
+    price: "375",
+    previous: "400",
     discount: "-25%",
     rating: "88",
     stars: 4.3,
@@ -519,8 +519,8 @@ export const Product = [
   {
     id: 8,
     title: "Small BookSelf",
-    price: "$360",
-    previous: "$440",
+    price: "360",
+    previous: "440",
     discount: "-30%",
     rating: "65",
     stars: 4,
@@ -566,8 +566,8 @@ export const Product = [
   {
     id: 9,
     title: "The north coat",
-    price: "$260",
-    previous: "$360",
+    price: "260",
+    previous: "360",
     rating: "88",
     stars: 4.8,
     image: shirt,
@@ -611,8 +611,8 @@ export const Product = [
   {
     id: 10,
     title: "Gucci duffle bag",
-    price: "$960",
-    previous: "$1160",
+    price: "960",
+    previous: "1160",
     rating: "75",
     stars: 4.4,
     image: perse,
@@ -657,8 +657,8 @@ export const Product = [
   {
     id: 11,
     title: "RGB liquid CPU Cooler",
-    price: "$160",
-    previous: "$170",
+    price: "160",
+    previous: "170",
     rating: "99",
     stars: 4.5,
     image: loud,
@@ -702,7 +702,7 @@ export const Product = [
   {
     id: 12,
     title: "Small BookSelf",
-    price: "$360",
+    price: "360",
     rating: "88",
     stars: 3.4,
     image: cupboard,
@@ -746,7 +746,7 @@ export const Product = [
   {
     id: 13,
     title: "Breed Dry Dog Food",
-    price: "$100",
+    price: "100",
     rating: "35",
     stars: 3,
     image: cesar,
@@ -790,7 +790,7 @@ export const Product = [
   {
     id: 14,
     title: "CANON EOS DSLR Camera",
-    price: "$360",
+    price: "360",
     rating: "95",
     stars: 4,
     image: camera,
@@ -834,7 +834,7 @@ export const Product = [
   {
     id: 15,
     title: "ASUS FHD Gaming Laptop",
-    price: "$700",
+    price: "700",
     rating: "375",
     stars: 4.5,
     image: laptop,
@@ -878,7 +878,7 @@ export const Product = [
   {
     id: 16,
     title: "Curology Product Set",
-    price: "$300",
+    price: "300",
     rating: "145",
     stars: 4,
     image: curology,
@@ -922,7 +922,7 @@ export const Product = [
   {
     id: 17,
     title: "Breed Dry Dog Food",
-    price: "$100",
+    price: "100",
     rating: "35",
     stars: 3,
     image: car,
@@ -968,7 +968,7 @@ export const Product = [
   {
     id: 18,
     title: "CANON EOS DSLR Camera",
-    price: "$360",
+    price: "360",
     rating: "95",
     stars: 4,
     image: shoes,
@@ -1012,7 +1012,7 @@ export const Product = [
   {
     id: 19,
     title: "ASUS FHD Gaming Laptop",
-    price: "$700",
+    price: "700",
     rating: "375",
     stars: 4.5,
     image: game1,
@@ -1057,7 +1057,7 @@ export const Product = [
   {
     id: 20,
     title: "Curology Product Set",
-    price: "$300",
+    price: "300",
     rating: "145",
     stars: 4,
     image: jacket,
