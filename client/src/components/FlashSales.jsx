@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { flashSales } from "../data/data";
+import { Product } from "../data/data";
 import { useNavigate } from "react-router-dom";
 
 const FlashSales = () => {
@@ -47,19 +47,27 @@ const FlashSales = () => {
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           style={{ width: "100%", height: "100%" }} // Set Swiper container height
         >
-          {flashSales.map((product) => (
-            <SwiperSlide
-              style={{
-                width: "250px",
-                height: "350px",
-              }}
-            >
-              <ProductCard
-                product={product}
-                click={() => navigate("/product-detail")}
-              />
-            </SwiperSlide>
-          ))}
+          {/* category: "flasSales" */}
+          {Product.filter((product) => product.category === "flasSales").map(
+            (product) => (
+              <>
+                {product.category === "flasSales" && (
+                  <SwiperSlide
+                    key={[product.id]}
+                    style={{
+                      width: "250px",
+                      height: "350px",
+                    }}
+                  >
+                    <ProductCard
+                      product={product}
+                      click={() => navigate("/product-detail")}
+                    />
+                  </SwiperSlide>
+                )}
+              </>
+            )
+          )}
         </Swiper>
       </Stack>
       <Box

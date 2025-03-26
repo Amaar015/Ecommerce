@@ -56,7 +56,6 @@ const Categories = () => {
         alignItems={"center"}
         justifyContent={"center"}
         flexDirection={"column"}
-        
         margin={"3rem 0rem"}
       >
         <Divider sx={{ width: "80%", bgcolor: "#000" }} />

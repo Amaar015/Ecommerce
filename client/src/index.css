@@ -63,3 +63,12 @@ body,
   border: 2px solid #000000 !important;
   /* text-decoration: ; */
 }
+
+.accountsLinks {
+  text-decoration: none;
+  color: #555555;
+  font-size: 16px;
+}
+.accountsLinks:hover {
+  color: #db4444;
+}

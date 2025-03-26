@@ -153,7 +153,10 @@ const Navbar = () => {
               >
                 {Profile.map((data) => (
                   <MenuItem
-                    onClick={handleClose}
+                    onClick={() => {
+                      handleClose();
+                      navigate("/account");
+                    }}
                     key={data.id}
                     sx={{ display: "flex", alignItems: "center", gap: "20px" }}
                   >

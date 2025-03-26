@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { heroData, sideBar, times } from "../data/data";
+import { heroData, sideBar } from "../data/data";
 import EastIcon from "@mui/icons-material/East";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -229,6 +229,36 @@ export const Heading = ({ title, fonts, fontw, color }) => {
 };
 
 export const SubHeading = ({ title, time, action, next, prev }) => {
+  const initialTime = 3 * 24 * 60 * 60 + 23 * 60 * 60 + 19 * 60 + 56;
+  const [timeLeft, setTimeLeft] = useState(initialTime);
+
+  useEffect(() => {
+    if (timeLeft <= 0) return; // Stop timer when time reaches zero
+
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, [timeLeft]);
+
+  // Convert timeLeft (seconds) into days, hours, minutes, and seconds
+  const formatTime = (seconds) => {
+    const days = Math.floor(seconds / (24 * 60 * 60));
+    const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((seconds % (60 * 60)) / 60);
+    const secs = seconds % 60;
+
+    return [
+      { title: "Days", time: String(days).padStart(2, "0") },
+      { title: "Hours", time: String(hours).padStart(2, "0") },
+      { title: "Minutes", time: String(minutes).padStart(2, "0") },
+      { title: "Seconds", time: String(secs).padStart(2, "0") },
+    ];
+  };
+
+  const times = formatTime(timeLeft);
+
   return (
     <Stack
       width={"100%"}
@@ -546,6 +576,7 @@ export const ProductsCard = ({ product }) => {
           },
         }}
       >
+        
         <img
           src={product?.image}
           alt=""

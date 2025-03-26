@@ -2,15 +2,18 @@ import { Box, IconButton, Stack, Typography } from "@mui/material";
 import * as React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { projects } from "../data/data";
+import { Product } from "../data/data";
 
 export default function CartTable() {
   // Correcting the state initialization
   const [quantities, setQuantities] = React.useState(
-    projects.reduce((acc, project) => {
-      acc[project.id] = project.quantity || 1; // Default to 1 if undefined
-      return acc;
-    }, {})
+    Product.filter((product) => product.isCart === true).reduce(
+      (acc, product) => {
+        acc[product.id] = product.quantity || 1; // Default to 1 if undefined
+        return acc;
+      },
+      {}
+    )
   );
 
   // Function to increase quantity
@@ -65,9 +68,9 @@ export default function CartTable() {
 
       {/* Scrollable Content */}
       <Box display="flex" flexDirection="column" gap="10px">
-        {projects.map((project) => (
+        {Product.filter((product) => product.isCart === ture).map((product) => (
           <Box
-            key={project.id}
+            key={product.id}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -85,18 +88,18 @@ export default function CartTable() {
               alignItems="center"
             >
               <img
-                src={project.image}
+                src={product.image}
                 alt="Product"
                 style={{ width: "54px", height: "54px", objectFit: "contain" }}
               />
               <Typography fontSize="16px" fontWeight={400}>
-                {project.name}
+                {product.title}
               </Typography>
             </Box>
 
             {/* Price */}
             <Typography fontSize="16px" fontWeight={400}>
-              ${project.price}
+              ${product.price}
             </Typography>
 
             {/* Quantity Counter */}
@@ -112,20 +115,20 @@ export default function CartTable() {
               borderRadius="4px"
             >
               <Typography fontSize="16px" fontWeight={400}>
-                {quantities[project.id]}
+                {quantities[product.id]}
               </Typography>
 
               {/* Increase / Decrease Buttons */}
               <Stack spacing="-0.1rem">
                 <IconButton
                   sx={{ width: "20px", height: "20px" }}
-                  onClick={() => handleIncrease(project.id)}
+                  onClick={() => handleIncrease(product.id)}
                 >
                   <KeyboardArrowUpIcon sx={{ color: "#000000" }} />
                 </IconButton>
                 <IconButton
                   sx={{ width: "20px", height: "20px" }}
-                  onClick={() => handleDecrease(project.id)}
+                  onClick={() => handleDecrease(product.id)}
                 >
                   <KeyboardArrowDownIcon sx={{ color: "#000000" }} />
                 </IconButton>
@@ -134,7 +137,7 @@ export default function CartTable() {
 
             {/* Subtotal Calculation */}
             <Typography fontSize="16px" fontWeight={400}>
-              ${(project.price * quantities[project.id]).toFixed(2)}
+              ${(product.price * quantities[product.id]).toFixed(2)}
             </Typography>
           </Box>
         ))}

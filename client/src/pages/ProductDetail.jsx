@@ -6,11 +6,18 @@ import {
   Stack,
   Typography,
   FormControlLabel,
+  IconButton,
+  Checkbox,
 } from "@mui/material";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 
 import React, { useState } from "react";
 import {
   BeforeHeading,
+  Buttons,
   Heading,
   ProductCard,
   Star,
@@ -35,7 +42,6 @@ const ProductDetail = () => {
       <Box display={"flex"} gap={"2rem"} flexWrap={"wrap"}>
         <Box
           flex={1.5}
-          //   bgcolor={"pink"}
           display={"grid"}
           gridTemplateColumns={"repeat(4,1fr)"}
           gridAutoColumns={"230px"}
@@ -204,9 +210,72 @@ const ProductDetail = () => {
               />
             </RadioGroup>
           </Box>
-          {/* <Box display={"flex"} alignItems={"center"} gap={"15px"}>
-            <Typography>Size:</Typography>
-          </Box> */}
+
+          <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
+            <Box display={"flex"} alignItems={"center"} padding={"1.5rem 0rem"}>
+              <IconButton
+                sx={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  border: "1px solid #666",
+                  borderRadius: "4px 0px 0px 4px",
+                  "&:hover": {
+                    background: "#DB4444",
+                    color: "#fafafa",
+                  },
+                }}
+              >
+                <RemoveIcon />
+              </IconButton>
+              <div
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  border: "1px solid #666",
+                  width: "4rem",
+                  height: "2.4rem",
+                  textAlign: "center",
+                }}
+              >
+                2
+              </div>
+              <IconButton
+                sx={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  border: "1px solid #666",
+                  borderRadius: "0px 4px 4px 0px",
+                  "&:hover": {
+                    background: "#DB4444",
+                    color: "#fafafa",
+                  },
+                }}
+              >
+                <AddIcon />
+              </IconButton>
+            </Box>
+            <Buttons title={"Buy Now"} padding={"0.4rem 3rem"} />
+            <Box
+              width={"2.4rem"}
+              height={"2.4rem"}
+              border={"1px solid #666"}
+              borderRadius={"8px"}
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <Checkbox
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+                sx={{
+                  color: "#666",
+                  "&.Mui-checked": {
+                    color: "#DB4444",
+                  },
+                }}
+              />
+            </Box>
+          </Box>
 
           <Box
             display={"flex"}

@@ -33,7 +33,7 @@ const Products = () => {
         gap={"30px"}
       >
         {newProduct.map((best) => (
-          <Box sx={{ width: "270px", height: "350px" }}>
+          <Box sx={{ width: "270px", height: "350px" }} key={best.id}>
             <ProductsCard product={best} />
           </Box>
         ))}

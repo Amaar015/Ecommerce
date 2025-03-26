@@ -1,6 +1,6 @@
 import { Box, Button, Stack, styled, Typography } from "@mui/material";
 import React from "react";
-import { Suggested, wishlist } from "../data/data";
+import { Product, Suggested, wishlist } from "../data/data";
 import { Heading, ProductCard } from "../components/Components";
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -32,11 +32,13 @@ const Wishlist = () => {
         flexDirection={"row"}
         gap={"30px"}
       >
-        {wishlist.map((wish) => (
-          <Box sx={{ width: "270px", height: "350px" }} key={wish.id}>
-            <ProductCard product={wish} />
-          </Box>
-        ))}
+        {Product.filter((product) => product.wishlist === true).map(
+          (product) => (
+            <Box sx={{ width: "270px", height: "350px" }} key={product.id}>
+              <ProductCard product={product} />
+            </Box>
+          )
+        )}
       </Stack>
 
       {/* 2nd  */}

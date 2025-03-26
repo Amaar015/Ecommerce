@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import React from "react";
 import { Heading, ProductCard, SubHeading } from "./Components";
-import { BestProduct } from "../data/data";
+import { Product } from "../data/data";
 
 const BestProducts = () => {
   return (
@@ -21,13 +21,15 @@ const BestProducts = () => {
         alignItems={"center"}
         flexWrap={"wrap"}
         flexDirection={"row"}
-        gap={'30px'}
+        gap={"30px"}
       >
-        {BestProduct.map((best) => (
-          <Box sx={{ width: "270px", height: "350px" }}>
-            <ProductCard product={best} />
-          </Box>
-        ))}
+        {Product.filter((product) => product.category === "best").map(
+          (best) => (
+            <Box sx={{ width: "270px", height: "350px" }}>
+              <ProductCard product={best} />
+            </Box>
+          )
+        )}
       </Stack>
     </>
   );
