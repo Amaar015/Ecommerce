@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { heroData, sideBar } from "../data/data";
 import EastIcon from "@mui/icons-material/East";
@@ -231,7 +231,7 @@ export const Heading = ({ title, fonts, fontw, color }) => {
 export const SubHeading = ({ title, time, action, next, prev }) => {
   const initialTime = 3 * 24 * 60 * 60 + 23 * 60 * 60 + 19 * 60 + 56;
   const [timeLeft, setTimeLeft] = useState(initialTime);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (timeLeft <= 0) return; // Stop timer when time reaches zero
 
@@ -258,7 +258,9 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
   };
 
   const times = formatTime(timeLeft);
-
+  const handleView = () => {
+    navigate("/view-product");
+  };
   return (
     <Stack
       width={"100%"}
@@ -311,7 +313,11 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
           </IconButton>
         </Box>
       ) : action === false ? (
-        <Buttons title={"View All"} padding={"0.4rem 2.5rem"} />
+        <Buttons
+          title={"View All"}
+          padding={"0.4rem 2.5rem"}
+          click={handleView}
+        />
       ) : (
         ""
       )}
@@ -319,7 +325,8 @@ export const SubHeading = ({ title, time, action, next, prev }) => {
   );
 };
 
-export const ProductCard = ({ product, click }) => {
+export const ProductCard = ({ product, click, addFavourite }) => {
+  const navigate = useNavigate();
   return (
     <Box
       width={"100%"}
@@ -378,6 +385,7 @@ export const ProductCard = ({ product, click }) => {
                   height: "34px",
                   backgroundColor: "#fff",
                 }}
+                onClick={() => addFavourite(product.id)}
               >
                 <FaRegHeart style={{ fontSize: "16px" }} />
               </IconButton>
@@ -387,6 +395,7 @@ export const ProductCard = ({ product, click }) => {
                   height: "34px",
                   backgroundColor: "#fff",
                 }}
+                onClick={() => click(product.id)}
               >
                 <MdOutlineRemoveRedEye style={{ fontSize: "16px" }} />
               </IconButton>
@@ -437,6 +446,7 @@ export const ProductCard = ({ product, click }) => {
             fontSize: "16px",
             transition: "bottom 0.3s ease-in-out, opacity 0.3s ease-in-out",
           }}
+          onClick={() => navigate("/cart")}
         >
           Add To Cart
         </Button>
@@ -446,7 +456,7 @@ export const ProductCard = ({ product, click }) => {
           fontSize={"16px"}
           fontWeight={500}
           sx={{ cursor: "pointer" }}
-          onClick={click}
+          onClick={() => click(product.id)}
         >
           {product?.title}
         </Typography>
@@ -552,7 +562,11 @@ export const CategoriesCard = ({ product }) => {
 };
 
 // card design ii
-export const ProductsCard = ({ product }) => {
+export const ProductsCard = ({ product, click, addFavourite }) => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/cart");
+  };
   return (
     <Box
       width={"100%"}
@@ -576,7 +590,6 @@ export const ProductsCard = ({ product }) => {
           },
         }}
       >
-        
         <img
           src={product?.image}
           alt=""
@@ -600,6 +613,7 @@ export const ProductsCard = ({ product }) => {
               height: "34px",
               backgroundColor: "#fff",
             }}
+            onClick={() => addFavourite(product.id)}
           >
             <FaRegHeart style={{ fontSize: "16px" }} />
           </IconButton>
@@ -609,6 +623,7 @@ export const ProductsCard = ({ product }) => {
               height: "34px",
               backgroundColor: "#fff",
             }}
+            onClick={() => click(product.id)}
           >
             <MdOutlineRemoveRedEye style={{ fontSize: "16px" }} />
           </IconButton>
@@ -642,12 +657,18 @@ export const ProductsCard = ({ product }) => {
             fontSize: "16px",
             transition: "bottom 0.3s ease-in-out, opacity 0.3s ease-in-out",
           }}
+          onClick={handleNavigate}
         >
           Add To Cart
         </Button>
       </Box>
       <Box display={"flex"} flexDirection={"column"} gap={"0.5rem"}>
-        <Typography fontSize={"16px"} fontWeight={500}>
+        <Typography
+          fontSize={"16px"}
+          fontWeight={500}
+          sx={{ cursor: "pointer" }}
+          onClick={() => click(product.id)}
+        >
           {product?.title}
         </Typography>
         <Box display={"flex"} gap={"0.3rem"} fontSize={"16px"}>

@@ -2,8 +2,14 @@ import { Box, Stack } from "@mui/material";
 import React from "react";
 import { Heading, ProductCard, SubHeading } from "./Components";
 import { Product } from "../data/data";
+import { useNavigate } from "react-router-dom";
 
-const BestProducts = () => {
+const BestProducts = ({ addWishlist }) => {
+  const navigate = useNavigate();
+  const handleOnClick = (id) => {
+    navigate(`/product-detail/${id}`);
+  };
+
   return (
     <>
       <Stack padding={"3rem 8% 1.5rem 8%"} spacing={"2rem"}>
@@ -26,7 +32,11 @@ const BestProducts = () => {
         {Product.filter((product) => product.category === "best").map(
           (best) => (
             <Box sx={{ width: "270px", height: "350px" }}>
-              <ProductCard product={best} />
+              <ProductCard
+                product={best}
+                click={handleOnClick}
+                addFavourite={addWishlist}
+              />
             </Box>
           )
         )}

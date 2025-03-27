@@ -29,9 +29,24 @@ import detail4 from "../assets/detail-4.png";
 import detail5 from "../assets/detail-5.png";
 import delivery from "../assets/return-1.png";
 import returns from "../assets/return.png";
-import { Suggested } from "../data/data";
+import { Product, Suggested } from "../data/data";
 const ProductDetail = () => {
   const [selectedValue, setSelectedValue] = useState("white"); // Default selection
+  const [images, setImages] = useState(detail1);
+  const [quantities, setQuantities] = React.useState(1);
+
+  const handleIncrease = () => {
+    setQuantities((prev) => prev + 1);
+  };
+
+  // Function to decrease quantity (but not below 1)
+  const handleDecrease = () => {
+    setQuantities((prev) => (prev > 1 ? prev - 1 : prev));
+  };
+
+  const handleImageChange = (data) => {
+    setImages(data);
+  };
 
   return (
     <Stack padding={"3rem 8% 5rem 8%"} spacing={"2rem"}>
@@ -60,21 +75,25 @@ const ProductDetail = () => {
             }}
           >
             <img
+              onClick={() => handleImageChange(detail2)}
               src={detail2}
               alt=""
               style={{ width: "100%", height: "20%", objectFit: "contain" }}
             />
             <img
+              onClick={() => handleImageChange(detail3)}
               src={detail3}
               alt=""
               style={{ width: "100%", height: "20%", objectFit: "contain" }}
             />
             <img
+              onClick={() => handleImageChange(detail4)}
               src={detail4}
               alt=""
               style={{ width: "100%", height: "20%", objectFit: "contain" }}
             />
             <img
+              onClick={() => handleImageChange(detail5)}
               src={detail5}
               alt=""
               style={{ width: "100%", height: "20%", objectFit: "contain" }}
@@ -85,7 +104,7 @@ const ProductDetail = () => {
             sx={{ gridColumn: "span 3", gridRow: "span 5", bgcolor: "pink" }}
           >
             <img
-              src={detail1}
+              src={images}
               alt=""
               width={"100%"}
               height={"100%"}
@@ -224,6 +243,7 @@ const ProductDetail = () => {
                     color: "#fafafa",
                   },
                 }}
+                onClick={() => handleDecrease(1)}
               >
                 <RemoveIcon />
               </IconButton>
@@ -237,7 +257,7 @@ const ProductDetail = () => {
                   textAlign: "center",
                 }}
               >
-                2
+                {quantities}
               </div>
               <IconButton
                 sx={{
@@ -250,6 +270,7 @@ const ProductDetail = () => {
                     color: "#fafafa",
                   },
                 }}
+                onClick={() => handleIncrease(1)}
               >
                 <AddIcon />
               </IconButton>

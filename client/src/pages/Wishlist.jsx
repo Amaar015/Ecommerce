@@ -11,6 +11,10 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Wishlist = () => {
+  const productData = JSON.parse(localStorage.getItem("products")) || [];
+
+  const wishlist = productData.filter((product) => product.wishlist === true);
+ 
   return (
     <Stack padding={"3rem 8% 3rem 8%"} spacing={"2rem"}>
       <Box
@@ -32,13 +36,11 @@ const Wishlist = () => {
         flexDirection={"row"}
         gap={"30px"}
       >
-        {Product.filter((product) => product.wishlist === true).map(
-          (product) => (
-            <Box sx={{ width: "270px", height: "350px" }} key={product.id}>
-              <ProductCard product={product} />
-            </Box>
-          )
-        )}
+        {wishlist.map((product) => (
+          <Box sx={{ width: "270px", height: "350px" }} key={product.id}>
+            <ProductCard product={product} />
+          </Box>
+        ))}
       </Stack>
 
       {/* 2nd  */}

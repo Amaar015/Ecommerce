@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import { Product } from "../data/data";
 import { useNavigate } from "react-router-dom";
 
-const FlashSales = () => {
+const FlashSales = ({ addWishlist }) => {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
   const onFarwardClick = () => {
@@ -20,8 +20,11 @@ const FlashSales = () => {
   const onBackwardClick = () => {
     swiperRef.current?.slidePrev();
   };
-  const handleOnClick = () => {
-    navigate("/product-detail");
+  const handleOnClick = (id) => {
+    navigate(`/product-detail/${id}`);
+  };
+  const handleView = () => {
+    navigate("/view-product");
   };
   return (
     <>
@@ -61,7 +64,8 @@ const FlashSales = () => {
                   >
                     <ProductCard
                       product={product}
-                      click={() => navigate("/product-detail")}
+                      click={handleOnClick}
+                      addFavourite={addWishlist}
                     />
                   </SwiperSlide>
                 )}
@@ -78,7 +82,11 @@ const FlashSales = () => {
         gap={"3rem"}
         marginBottom={"3rem"}
       >
-        <Buttons title={"View All Products"} padding={"0.8rem 2.5rem"} />
+        <Buttons
+          title={"View All Products"}
+          padding={"0.8rem 2.5rem"}
+          click={handleView}
+        />
 
         <Divider sx={{ width: "80%", bgcolor: "#000" }} />
       </Box>

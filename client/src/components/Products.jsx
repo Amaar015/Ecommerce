@@ -2,8 +2,9 @@ import { Box, Stack } from "@mui/material";
 import React, { useRef } from "react";
 import { Buttons, Heading, ProductsCard, SubHeading } from "./Components";
 import { newProduct } from "../data/data";
+import { useNavigate } from "react-router-dom";
 
-const Products = () => {
+const Products = ({addWishlist}) => {
   //   const swiperRef = useRef(null);
   //   const onFarwardClick = () => {
   //     swiperRef.current?.slideNext();
@@ -11,6 +12,13 @@ const Products = () => {
   //   const onBackwardClick = () => {
   //     swiperRef.current?.slidePrev();
   //   };
+  const navigate = useNavigate();
+  const handleOnClick = (id) => {
+    navigate(`/product-detail/${id}`);
+  };
+  const handleView = () => {
+    navigate("/view-product");
+  };
   return (
     <>
       <Stack padding={"3rem 8% 1.5rem 8%"} spacing={"2rem"}>
@@ -34,7 +42,7 @@ const Products = () => {
       >
         {newProduct.map((best) => (
           <Box sx={{ width: "270px", height: "350px" }} key={best.id}>
-            <ProductsCard product={best} />
+            <ProductsCard product={best} click={handleOnClick}  addFavourite={addWishlist}/>
           </Box>
         ))}
       </Stack>
@@ -46,7 +54,11 @@ const Products = () => {
         gap={"3rem"}
         marginBottom={"3rem"}
       >
-        <Buttons title={"View All Products"} padding={"0.8rem 2.5rem"} />
+        <Buttons
+          title={"View All Products"}
+          padding={"0.8rem 2.5rem"}
+          click={handleView}
+        />
       </Box>
     </>
   );

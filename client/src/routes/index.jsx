@@ -29,7 +29,7 @@ export default function Router() {
         { path: "/wishlist", element: <Wishlist /> },
         { path: "/cart", element: <Cart /> },
         { path: "/checkout", element: <Checkout /> },
-        { path: "/product-detail", element: <ProductDetail /> },
+        { path: "/product-detail/:id", element: <ProductDetail /> },
         { path: "/account", element: <Account /> },
         { path: "*", element: <Page404 /> },
       ],
